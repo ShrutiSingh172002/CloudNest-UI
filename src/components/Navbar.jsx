@@ -61,7 +61,10 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <ul className="hidden lg:flex space-x-8">
-          <ServicesDropdown closeAll={closeAll} />
+          <li>
+           <ServicesDropdown closeAll={closeAll} /> 
+          </li>
+          
           {["Company", "Contact"].map((item) => (
             <li key={item} className="hover:text-yellow-300 transition-colors duration-200">
               <Link 

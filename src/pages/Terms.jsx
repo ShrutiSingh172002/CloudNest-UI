@@ -1,7 +1,7 @@
 export default function Terms() {
   return (
     <div className="pt-20 px-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
+      <h1 className="text-3xl font-bold text-blue-600 mb-4">Terms of Service</h1>
       <p className="mb-4">
         By accessing and using CloudNest, you accept and agree to be bound by the terms and provisions of this agreement.
       </p>

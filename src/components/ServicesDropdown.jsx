@@ -2,13 +2,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
-import ServiceLandingPage from './ServiceLandingPage'; // Added import
+import ServiceLandingPage from './ServiceLandingPage';
 
 export default function ServicesDropdown({ closeAll }) {
   const [servicesPageOpen, setServicesPageOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-  const [showServiceLandingPage, setShowServiceLandingPage] = useState(false); // Added
-  const [selectedServiceData, setSelectedServiceData] = useState(null); // Added
+  const [showServiceLandingPage, setShowServiceLandingPage] = useState(false);
+  const [selectedServiceData, setSelectedServiceData] = useState(null);
   const servicesRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ServicesDropdown({ closeAll }) {
   }, []);
 
   useEffect(() => {
-    if (servicesPageOpen || showServiceLandingPage) {
+    if (servicesPageOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -34,7 +34,7 @@ export default function ServicesDropdown({ closeAll }) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [servicesPageOpen, showServiceLandingPage]);
+  }, [servicesPageOpen]);
 
   const openServicesPage = () => {
     setServicesPageOpen(true);
@@ -47,9 +47,14 @@ export default function ServicesDropdown({ closeAll }) {
   };
 
   const handleServiceSelect = (service, category) => {
-    setSelectedServiceData({ ...service, category }); // Updated
-    setShowServiceLandingPage(true); // Updated
+    setSelectedServiceData({ ...service, category });
+    setShowServiceLandingPage(true);
     closeServicesPage();
+  };
+
+  const handleBackFromLanding = () => {
+    setShowServiceLandingPage(false);
+    setSelectedServiceData(null);
   };
 
   return (
@@ -65,13 +70,11 @@ export default function ServicesDropdown({ closeAll }) {
       </button>
 
       {servicesPageOpen && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
-            onClick={closeServicesPage}
-          />
-          <div className="relative min-h-screen bg-white">
-            <div className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
+        <div className="fixed top-16 left-0 right-0 bottom-0 z-30 overflow-y-auto bg-white">
+          {/* Content starts below the navbar - accounting for navbar height */}
+          <div className=""> {/* Remove padding-top since we're positioning below navbar */}
+            {/* Header Section */}
+            <div className="bg-white border-b border-gray-200 shadow-sm">
               <div className="max-w-7xl mx-auto px-4 py-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -80,16 +83,15 @@ export default function ServicesDropdown({ closeAll }) {
                   </div>
                   <button
                     onClick={closeServicesPage}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 rounded-lg transition-colors font-medium"
                   >
-                    <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    Close
                   </button>
                 </div>
               </div>
             </div>
 
+            {/* Services Grid */}
             <div className="px-6 md:px-12 lg:px-20 py-8">
               <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
                 {Object.entries(servicesData).map(([category, services]) => (
@@ -133,6 +135,7 @@ export default function ServicesDropdown({ closeAll }) {
                 ))}
               </div>
 
+              {/* Call to Action Section */}
               <div className="mt-16 text-center">
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
                   <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
@@ -143,15 +146,9 @@ export default function ServicesDropdown({ closeAll }) {
                       onClick={closeServicesPage}
                       className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      Get Free Quote
-                    </Link>
-                    <Link 
-                      to="/consultation"
-                      onClick={closeServicesPage}
-                      className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
-                    >
                       Schedule Consultation
                     </Link>
+                    
                   </div>
                 </div>
               </div>
@@ -164,10 +161,7 @@ export default function ServicesDropdown({ closeAll }) {
         <ServiceLandingPage 
           service={selectedServiceData}
           category={selectedServiceData.category}
-          onBack={() => {
-            setShowServiceLandingPage(false);
-            setSelectedServiceData(null);
-          }}
+          onBack={handleBackFromLanding}
         />
       )}
     </>

@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 const ContactUs = () => {
   return (
     <div className="contact-page">
-      <h1>Contact Us</h1>
+      <h1 className="contact-heading">Contact Us</h1>
 
       {/* Intro Message */}
       <p className="intro">
@@ -14,19 +14,18 @@ const ContactUs = () => {
 
       {/* Contact Info */}
       <div className="contact-info">
-        <p><Mail size={18} /> Email: <a href="mailto:contact@cloudnest.com">contact@cloudnest.com</a></p>
-        <p><Phone size={18} /> Phone: +91-9876543210</p>
+        <p><Mail size={18} /> Email: <a href="mailto:info@cloudnest.com">info@cloudnest.com</a></p>
+        <p><Phone size={18} /> Phone: +1 (555) 123-4567</p>
         <p><MapPin size={18} /> Address: CloudNest HQ, Sector 5, Noida, India</p>
 
         {/* Call Now Button */}
-        <a href="tel:+919876543210" id="call-now">
+        <a href="tel:+1 (555) 123-4567" id="call-now">
           <button className="call-now-button">
-            <Phone size={16} style={{ marginRight: '5px' }} />Call Now
+            <Phone size={20} /> Call Now
+
           </button>
         </a>
       </div>
-
-     
     </div>
   );
 };
