@@ -1,0 +1,88 @@
+.main-content {
+  padding: 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f0f8ff;
+}
+
+.services-section,
+.why-choose-us,
+.cta-section {
+  margin: 3rem 0;
+}
+
+.features-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  flex: 1 1 30%;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  background-color: yellow;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+
+/* Home.css */
+
+.main-content {
+  padding: 2rem;
+  text-align: center; /* This centers the text inside sections */
+}
+
+/* Optional: Add spacing and alignment to sections */
+.hero-section,
+.services-section,
+.why-choose-us,
+.cta-section {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+/* Center button */
+.cta-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: yellow;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #ffd700;
+}
+
+/* Features Grid Styling */
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.feature-box {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+}
+
