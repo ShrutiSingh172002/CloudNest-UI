@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+section, main, .hero-content {
+  border-top: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
+#root, .App {
+  border: none !important;
+  border-top: none !important;
+  outline: none !important;
+  background: none !important;
+}
+
+nav, .navbar, .main-navbar {
+  border: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  background: #000 !important;
+  box-shadow: none !important;
+}
+
+section:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+body, html {
+  border: none !important;
+  border-top: none !important;
+  outline: none !important;
+  background: none !important;
+}

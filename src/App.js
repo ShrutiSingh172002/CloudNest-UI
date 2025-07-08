@@ -13,6 +13,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Legal from "./pages/Legal";
 import Login from "./components/Login"; // ✅ Add this line
+import ServiceLandingPage from "./components/ServiceLandingPage";
+import ServicesDropdown from "./components/ServicesDropdown";
 
 
 function App() {
@@ -31,9 +33,9 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/legal" element={<Legal />} />
-            <Route path="/login" element={<Login />} /> {/* ✅ Add this route */}
-            <Route path="/contact" element={<Contact />} />
-            
+            <Route path="/login" element={<Login />} />
+            <Route path="/service/:serviceName" element={<ServiceLandingPage />} />
+            <Route path="/services-dropdown" element={<ServicesDropdown />} />
           </Routes>
         </main>
 

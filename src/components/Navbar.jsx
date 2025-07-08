@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 bg-blue-600 text-white px-4 md:px-6 py-3 flex items-center justify-between z-50 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 bg-black text-white px-4 md:px-6 py-3 flex items-center justify-between z-50" style={{ boxShadow: 'none', border: 'none', borderBottom: 'none', outline: 'none' }}>
         {/* Logo */}
         <Link to="/" onClick={closeAll} className="flex items-center space-x-2 hover:opacity-90 transition-opacity">
           <svg
@@ -56,21 +56,28 @@ export default function Navbar() {
               d="M3 15a4 4 0 014-4h1a4 4 0 118 0h1a4 4 0 010 8H7a4 4 0 01-4-4z"
             />
           </svg>
-          <span className="text-xl font-extrabold text-white">CloudNest</span>
+          <span className="text-xl font-extrabold text-white"> AK Consultancy
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}
-        <ul className="hidden lg:flex space-x-8">
-          <li>
-           <ServicesDropdown closeAll={closeAll} /> 
+        <ul className="hidden lg:flex space-x-8 items-center h-full">
+          <li className="flex items-center h-full">
+            <Link to="/" onClick={closeAll} className="px-2 py-1 rounded hover:bg-blue-700 transition-colors duration-200 h-full flex items-center">
+              Home
+            </Link>
           </li>
-          
-          {["Company", "Contact"].map((item) => (
-            <li key={item} className="hover:text-yellow-300 transition-colors duration-200">
+          <li className="flex items-center h-full">
+            <ServicesDropdown closeAll={closeAll} />
+          </li>
+          {[
+            "Company", "Contact"
+          ].map((item) => (
+            <li key={item} className="hover:text-yellow-300 transition-colors duration-200 flex items-center h-full">
               <Link 
                 to={`/${item.toLowerCase()}`} 
                 onClick={closeAll}
-                className="px-2 py-1 rounded hover:bg-blue-700 transition-colors duration-200"
+                className="px-2 py-1 rounded hover:bg-blue-700 transition-colors duration-200 h-full flex items-center"
               >
                 {item}
               </Link>
@@ -133,6 +140,13 @@ export default function Navbar() {
               </div>
 
               {/* Other Nav Items */}
+              <Link
+                to="/"
+                onClick={closeAll}
+                className="block px-4 py-3 hover:bg-blue-50 transition-colors duration-150 border-b border-gray-100"
+              >
+                Home
+              </Link>
               {["Company", "Contact"].map((item) => (
                 <Link
                   key={item}
@@ -147,14 +161,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* Overlay for mobile menu */}
-      {mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-25 z-40 lg:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-      )}
     </>
   );
 }

@@ -1,122 +1,162 @@
 .contact-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
-  color: black;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  font-family: 'Segoe UI', sans-serif;
+  color: #1e3a8a;
+  animation: fadeIn 0.8s ease;
 }
 
-.contact-page h1 {
-  color: blue;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-heading {
   text-align: center;
+  font-size: 42px;
+  color: white;
   margin-bottom: 20px;
 }
 
 .intro {
   text-align: center;
+  font-size: 16px;
+  color: white;
   margin-bottom: 30px;
-  font-size: 1.1rem;
+}
+
+.contact-info {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-left: 5px solid #facc15;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .contact-info p {
-  margin: 6px 0;
-}
-
-.contact-info a {
-  color: #0056b3;
-  text-decoration: none;
-}
-
-.contact-form {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form label {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
-}
-
-.contact-form textarea {
-  min-height: 100px;
-}
-
-.contact-form button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background-color: darkblue;
-}
-
-.map-container {
-  margin: 40px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.social-links {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.social-links a {
-  color: #0056b3;
-  margin: 0 8px;
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-}
-.call-now-button {
-  padding: 14px 28px;          /* More vertical + horizontal padding */
-  background-color: #28a745;
-  color: white;
-  font-size: 1.1rem;           /* Slightly larger text */
-  font-weight: 600;            /* Make the text bolder */
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;                    /* Space between icon and text */
-}
-
-.call-now-button:hover {
-  background-color: #218838;
-}
-.contact-info p {
+  margin: 10px 0;
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 8px 0;
+  flex-wrap: wrap;
 }
-.contact-heading {
-  color: blue;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem;
+
+.contact-info a {
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.call-now-button {
+  background-color: #facc15;
+  color: #1e3a8a;
   font-weight: bold;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 30px auto;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.call-now-button:hover {
+  background-color: #eab308;
+}
+
+.business-hours,
+.support-section,
+.contact-form-placeholder {
+  background-color: #ffffff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.business-hours h2,
+.support-section h2,
+.contact-form-placeholder h2 {
+  color: #1e3a8a;
+  font-size: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.business-hours ul {
+  padding-left: 18px;
+  color: #333;
+}
+
+.contact-form-placeholder p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* 🔁 RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) {
+  .contact-page {
+    padding: 40px 15px;
+  }
+
+  .contact-heading {
+    font-size: 32px;
+  }
+
+  .intro,
+  .contact-info p,
+  .call-now-button {
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .call-now-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .business-hours h2,
+  .support-section h2,
+  .contact-form-placeholder h2 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-heading {
+    font-size: 28px;
+  }
+
+  .contact-info {
+    padding: 16px;
+  }
+
+  .business-hours,
+  .support-section,
+  .contact-form-placeholder {
+    padding: 20px 16px;
+  }
+
+  .call-now-button {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
 }
