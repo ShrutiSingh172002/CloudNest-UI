@@ -37,6 +37,13 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
+  // Listen for custom event to open ServicesDropdown overlay
+  useEffect(() => {
+    const openDropdown = () => setDropdownOpen(true);
+    window.addEventListener('openServicesDropdown', openDropdown);
+    return () => window.removeEventListener('openServicesDropdown', openDropdown);
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 bg-black text-white px-4 md:px-6 py-3 flex items-center justify-between z-50" style={{ boxShadow: 'none', border: 'none', borderBottom: 'none', outline: 'none' }}>

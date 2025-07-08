@@ -45,7 +45,8 @@ const ServiceLandingPage = (props) => {
   };
 
   const handleBack = () => {
-    navigate('/services');
+    window.dispatchEvent(new Event('openServicesDropdown'));
+    navigate('/');
   };
 
   const handleFormSubmit = (e) => {
@@ -133,15 +134,46 @@ const ServiceLandingPage = (props) => {
         <div className="w-full py-4 px-0 flex justify-between items-center">
           <button 
             onClick={handleBack} 
-            className="flex items-center text-white hover:text-blue-300 transition-colors ml-4"
+            className="flex items-center font-bold transition-colors ml-4 golden-btn"
+            style={{
+              background: 'linear-gradient(90deg, #FFD700, #FFA500)',
+              color: 'white',
+              border: 'none',
+              borderRadius: 12,
+              boxShadow: '0 2px 8px 0 rgba(16,30,60,0.18)',
+              padding: '12px 28px',
+              fontSize: 18,
+              letterSpacing: 1,
+              cursor: 'pointer',
+              gap: 8,
+              display: 'flex',
+              alignItems: 'center',
+            }}
           >
-            <ArrowLeft className="w-5 h-5 mr-2 text-white" />
+            <ArrowLeft className="w-5 h-5 mr-2" style={{ color: 'white' }} />
             Back to Services
           </button>
-          <span className="flex items-center gap-2 mr-4 text-white">
-            <Phone className="w-4 h-4 text-white" />
+          <button
+            className="flex items-center font-bold transition-colors mr-4 golden-btn"
+            style={{
+              background: 'linear-gradient(90deg, #FFD700, #FFA500)',
+              color: 'black',
+              border: 'none',
+              borderRadius: 12,
+              boxShadow: '0 2px 8px 0 rgba(16,30,60,0.18)',
+              padding: '12px 28px',
+              fontSize: 18,
+              letterSpacing: 1,
+              cursor: 'pointer',
+              gap: 8,
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            onClick={() => window.open('tel:9903210337', '_self')}
+          >
+            <Phone className="w-5 h-5 mr-2" style={{ color: 'black' }} />
             9903210337
-          </span>
+          </button>
         </div>
       </div>
 

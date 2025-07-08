@@ -116,11 +116,10 @@ const ContactUs = () => {
                 style={{ width: '100%', padding: 12, borderRadius: 6, border: '1px solid #b6d4fe', fontSize: 16, resize: 'vertical' }}
               />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <div style={{ width: '100%' }}>
               <button
                 type="submit"
-                className="call-now-button"
-                style={{ minWidth: 140, maxWidth: 180, width: '50%', padding: '10px 0', background: '#38bdf8', color: 'white', fontWeight: 600, fontSize: 16, borderRadius: 8, margin: '0 auto', display: 'block' }}
+                className="send-message-btn"
                 disabled={submitting}
               >
                 {submitting ? 'Sending...' : 'Send Message'}

@@ -109,6 +109,27 @@
   color: #444;
 }
 
+.send-message-btn {
+  width: 200px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 12px 0;
+  background: #38bdf8;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(56,189,248,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.send-message-btn:hover, .send-message-btn:focus {
+  background: #0ea5e9;
+  box-shadow: 0 4px 12px rgba(56,189,248,0.22);
+}
+
 /* 🔁 RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) {
   .contact-page {
@@ -158,5 +179,10 @@
   .call-now-button {
     font-size: 15px;
     padding: 10px 18px;
+  }
+
+  .send-message-btn {
+    width: 100%;
+    min-width: 0;
   }
 }
